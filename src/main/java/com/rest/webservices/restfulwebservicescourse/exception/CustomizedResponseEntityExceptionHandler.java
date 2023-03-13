@@ -1,6 +1,6 @@
 package com.rest.webservices.restfulwebservicescourse.exception;
 
-import java.net.http.HttpHeaders;
+// import java.net.http.HttpHeaders;
 import java.time.LocalDate;
 
 import org.springframework.http.HttpStatus;
@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import com.rest.webservices.restfulwebservicescourse.user.UserNotFoundException;
 
-import io.micrometer.common.lang.Nullable;
+// import io.micrometer.common.lang.Nullable;
 
 @ControllerAdvice
 public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExceptionHandler{
@@ -43,7 +43,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
         ErrorStructure ErrorStructure = new ErrorStructure(LocalDate.now(), 
         ex.getMessage(), request.getDescription(false));
 		
-		return new ResponseEntity(ErrorStructure, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(ErrorStructure, HttpStatus.BAD_REQUEST);
 		// return handleExceptionInternal(ex, null, headers, status, request);
 	}
 }
